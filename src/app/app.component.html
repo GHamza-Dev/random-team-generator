@@ -11,12 +11,18 @@
        placeholder="Team member name"
        (input)="onInput(addMemberInput.value)"
        [value]="newMember"
+       (keyup.enter)="addMember()"
        autofocus>
        <button (click)="addMember()">Add</button>
       </div>
       <div class="generate-team-container">
-        <input type="number" placeholder="Number of teams">
-        <button>Generate</button>
+        <input 
+        #nbrOfTeamsInput
+        type="number" 
+        placeholder="Number of teams"
+        (input)="setNumberOfTeams(nbrOfTeamsInput.value)"
+        [value]="numberOfTeams === 0 ? '' : numberOfTeams">
+        <button (click)="generateTeams()">Generate</button>
       </div>
       <small *ngIf="errorMessage" class="error">*{{ errorMessage }}</small>
   </div>
