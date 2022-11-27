@@ -1,10 +1,11 @@
 .container{
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1em;
 }
 
 .container-inner{
@@ -39,6 +40,10 @@ h1{
     font-size: 1.1rem;
     animation: add-member-animation .5s ease-out forwards;
     text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-style: normal;
 }
 
 @keyframes add-member-animation {
@@ -100,3 +105,25 @@ button:hover{
     font-weight: 600;
 }
 
+.teams h3{
+    margin-bottom: .6em;
+}
+.teams ul{
+    margin-top: 1em;
+}
+.teams li{
+    border: 1px solid var(--primary--clr);
+    padding: .5em;
+    border-radius: 5px;
+    margin-block: .5em;
+}
+
+.teams li p{
+    margin-block: .3em;
+}
+
+.team-member{
+    display: flex;
+    align-items: center;
+    gap: .3em;
+}
