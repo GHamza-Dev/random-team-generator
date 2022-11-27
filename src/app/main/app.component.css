@@ -104,26 +104,3 @@ button:hover{
     color: red;
     font-weight: 600;
 }
-
-.teams h3{
-    margin-bottom: .6em;
-}
-.teams ul{
-    margin-top: 1em;
-}
-.teams li{
-    border: 1px solid var(--primary--clr);
-    padding: .5em;
-    border-radius: 5px;
-    margin-block: .5em;
-}
-
-.teams li p{
-    margin-block: .3em;
-}
-
-.team-member{
-    display: flex;
-    align-items: center;
-    gap: .3em;
-}

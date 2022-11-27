@@ -1,0 +1,6 @@
+<h2>Generated teams</h2>
+<ul>
+  <li *ngFor="let team of teams; let i = index">
+    <app-team [team]="team" [index]="i"></app-team>
+  </li>
+</ul>

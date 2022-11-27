@@ -1,0 +1,10 @@
+<h3>Team n° {{ index + 1 }}</h3>
+<div class="team-member" *ngFor="let member of team">
+  <span>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="drop member"
+      fontIcon="badge"></mat-icon>
+  </span>
+  <p>{{ member }}</p>
+</div>

@@ -32,17 +32,6 @@
     </div>
     <small *ngIf="errorMessage" class="error">*{{ errorMessage }}</small>
     <div class="container-inner teams">
-      <h2>Generated teams</h2>
-      <ul>
-        <li *ngFor="let team of generatedTeams;let i=index">
-          <h3>Team n° {{ i+1 }}</h3>
-          <div class="team-member" *ngFor="let member of team"> 
-            <span>
-              <mat-icon aria-hidden="false" aria-label="drop member" fontIcon="badge"></mat-icon>
-            </span>
-            <p>{{ member }}</p>
-          </div>
-        </li>
-      </ul>
+      <app-teams-list [teams]="generatedTeams"></app-teams-list>
     </div>
 </div>
