@@ -1,0 +1,102 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-inner{
+    border: 1px solid var(--primary--clr);
+    padding: 1em;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 540px;
+}
+
+h1{
+    color: var(--primary--clr);
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid var(--primary--clr);
+    width: fit-content;
+    padding: 0 .5em;
+    border-radius: 100px;
+}
+
+.list{
+    margin-block: 2em;
+    background-color: var(--primary--clr--light);
+    padding: 1em;
+    border: 1px solid var(--primary--clr);
+    border-radius: 5px;
+}
+
+.list li{
+    margin: .5em 0;
+    color: var(--primary--clr);
+    font-size: 1.1rem;
+    animation: add-member-animation .5s ease-out forwards;
+    text-transform: capitalize;
+}
+
+@keyframes add-member-animation {
+    from{transform: translateY(30px);}
+    to{transform: none;}
+}
+
+.list li span{
+    font-style: italic;
+}
+
+.add-members-container{
+    margin-block: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+}
+
+.add-members-container input,
+.generate-team-container input{
+    padding: 1em;
+    border-radius: 5px;
+    border: 1px solid var(--primary--clr);
+    text-transform: capitalize;    
+}
+
+::placeholder{
+    font-style: italic;
+    color: var(--primary--clr);
+}
+
+button{
+    padding: .5em;
+    border-radius: 5px;
+    border: 1px solid var(--primary--clr);
+    font-weight: 700;
+    background-color: var(--primary--clr--light);
+    color: var(--primary--clr);
+    cursor: pointer;
+    transition: color 1s ease-out;
+}
+
+.generate-team-container{
+    display: flex;
+    gap: .3em;
+}
+
+.generate-team-container *{
+    flex: 1;
+}
+
+button:hover{
+    color: #fff;
+    background-color: #000;
+}
+
+.error{
+    color: red;
+    font-weight: 600;
+}
+
