@@ -37,24 +37,11 @@ export class AppComponent {
 
     this.resetErrorMessage();
     
-    if(this.members.length === 0){
-      this.errorMessage = "Please add members first!";
+    if(!this.inputIsValid){
       return;
     }
-
-    if(!this.numberOfTeams || this.numberOfTeams <= 0){
-      this.errorMessage = "Number of teams can not be less than 1 ;)";
-      return;
-    }
-
-    if(this.numberOfTeams > this.members.length){
-      this.errorMessage = "Number of teams can not be greater than the number of members ;)";
-      return;
-    }
-
 
     let numberOfMembersForEachTeam = Math.floor(this.members.length / this.numberOfTeams);
-    let allTeamsEquals = (this.members.length % this.numberOfTeams) === 0;
 
     this.resetGeneratedTeams();
 
@@ -73,14 +60,12 @@ export class AppComponent {
     }
 
     
-    if(!allTeamsEquals){
+    if(!(this.members.length % this.numberOfTeams === 0)){
       let randomTeam = this.random(this.numberOfTeams)-1;
       this.generatedTeams[randomTeam].push(tmpMembers[0]);
     }
 
     console.log(this.generatedTeams);
-    
-
   }
 
   random(max: number): number{
@@ -93,5 +78,25 @@ export class AppComponent {
 
   resetGeneratedTeams(){
     this.generatedTeams = [];
+  }
+
+  inputIsValid(): boolean{
+
+    if(this.members.length === 0){
+      this.errorMessage = "Please add members first!";
+      return false;
+    }
+
+    if(!this.numberOfTeams || this.numberOfTeams <= 0){
+      this.errorMessage = "Number of teams can not be less than 1 ;)";
+      return false;
+    }
+
+    if(this.numberOfTeams > this.members.length){
+      this.errorMessage = "Number of teams can not be greater than the number of members ;)";
+      return false;
+    }
+
+    return true;
   }
 }
