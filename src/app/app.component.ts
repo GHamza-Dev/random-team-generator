@@ -37,7 +37,7 @@ export class AppComponent {
 
     this.resetErrorMessage();
     
-    if(!this.inputIsValid){
+    if(!this.inputIsValid()){
       return;
     }
 
