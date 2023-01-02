@@ -1,37 +1,47 @@
 <div class="container">
-  <div class="container-inner" [style]="errorMessage ? 'border:1px red solid;' : ''">
+  <div
+    class="container-inner"
+    [style]="errorMessage ? 'border:1px red solid;' : ''"
+  >
     <h1>Team Generator</h1>
     <ul class="list">
       <li *ngIf="members.length == 0">You haven't added any members yet!</li>
-      <li *ngFor="let member of members; let i=index;">
+      <li *ngFor="let member of members; let i = index">
         <span>+ {{ member }} </span>
-        <span>
-          <mat-icon aria-hidden="false" aria-label="drop member" fontIcon="disabled_by_default"></mat-icon>
+        <span (click)="deleteMember(i)" style="cursor: pointer">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="drop member"
+            fontIcon="disabled_by_default"
+          ></mat-icon>
         </span>
       </li>
     </ul>
     <div class="add-members-container">
-      <input type="text"
-      #addMemberInput
-       placeholder="Team member name"
-       (input)="onInput(addMemberInput.value)"
-       [value]="newMember"
-       (keyup.enter)="addMember()"
-       autofocus>
-       <button (click)="addMember()">Add</button>
-      </div>
-      <div class="generate-team-container">
-        <input 
+      <input
+        type="text"
+        #addMemberInput
+        placeholder="Team member name"
+        (input)="onInput(addMemberInput.value)"
+        [value]="newMember"
+        (keyup.enter)="addMember()"
+        autofocus
+      />
+      <button (click)="addMember()">Add</button>
+    </div>
+    <div class="generate-team-container">
+      <input
         #nbrOfTeamsInput
-        type="number" 
+        type="number"
         placeholder="Number of teams"
         (input)="setNumberOfTeams(nbrOfTeamsInput.value)"
-        [value]="numberOfTeams === 0 ? '' : numberOfTeams">
-        <button (click)="generateTeams()">Generate</button>
-      </div>
+        [value]="numberOfTeams === 0 ? '' : numberOfTeams"
+      />
+      <button (click)="generateTeams(true)">Generate</button>
     </div>
-    <small *ngIf="errorMessage" class="error">*{{ errorMessage }}</small>
-    <div class="container-inner teams">
-      <app-teams-list [teams]="generatedTeams"></app-teams-list>
-    </div>
+  </div>
+  <small *ngIf="errorMessage" class="error">*{{ errorMessage }}</small>
+  <div class="container-inner teams">
+    <app-teams-list [teams]="generatedTeams"></app-teams-list>
+  </div>
 </div>
